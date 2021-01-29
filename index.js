@@ -13,11 +13,11 @@ io.on("connection", (socket) => {
   });
   socket.on("togglePause", (msg) => {
     console.log(msg);
-    io.emit("pause", msg.value);
+    socket.broadcast.emit("pause", msg.value);
   });
   socket.on("seek", (msg) => {
     console.log(msg);
-    io.emit("seek", msg.value);
+    socket.broadcast.emit("seek", msg.value);
   });
 });
 
