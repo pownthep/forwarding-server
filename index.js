@@ -13,14 +13,14 @@ io.on("connection", (socket) => {
   });
   socket.on("togglePause", (msg) => {
     console.log(msg);
-    socket.broadcast.emit("pause", msg.value);
+    io.emit("pause", msg.value);
   });
   socket.on("seek", (msg) => {
     console.log(msg);
-    socket.broadcast.emit("seek", msg.value);
+    io.emit("seek", msg.value);
   });
 });
 
-http.listen(process.env.PORT || 3001, () => {
-  console.log("listening on *:3001");
+http.listen(process.env.PORT || 3000, () => {
+  console.log("listening on *:3000");
 });
